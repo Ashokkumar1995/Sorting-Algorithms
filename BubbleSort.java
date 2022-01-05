@@ -1,25 +1,33 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
-public class InsertionSort {
-
+public class BubbleSort {
+    
     public static void printArray(int array[]){
         System.out.println("Array Elements are");
-        for(int i=0;i<array.length-1;i++){
+        for(int i=0;i<array.length;i++){
             System.out.println(array[i]);
         }
     }
-    
+
     public static void sort(int array[]){
-        for(int i=1;i<array.length;i++){
-            int j=i-1;
-            int key=array[i];
-            while(j>=0 && array[j]> key){
-                    array[j+1] = array[j];
-                    j=j-1;
+        for(int i=0;i<array.length;i++){
+            int swapped=0,temp;
+            for(int j=1;j<array.length;j++){
+                if(array[j-1] > array[j])
+                    {
+                        temp= array[j];
+                        array[j]=array[j-1];
+                        array[j-1]=temp;
+                        swapped=1;
+                    }
             }
-            array[j+1]=key;
+            if(swapped==0)
+                break;
         }
+       
+ 
+            
         printArray(array);
     }
 
@@ -37,5 +45,5 @@ public class InsertionSort {
 
         sort(inputs);       
     }
-   
+
 }
